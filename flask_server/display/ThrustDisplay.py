@@ -12,7 +12,7 @@ from bokeh.driving import linear
 from bokeh.plotting import figure, curdoc
 from bokeh.models.sources import ColumnDataSource
 from bokeh.io import show
-from bokeh.embed import autoload_server
+from bokeh.embed import autoload_server, components
 
 class ThrustDisplay:
     
@@ -82,6 +82,9 @@ curdoc().add_periodic_callback(update, 10)
 #currently configured to print a script to the console and thats it
 script = autoload_server(thrustdisplay.figure, session_id=session.id)
 print(script)
+script2, div = components(thrustdisplay.figure)
+print(script2)
+print(div)
 #session.show() # open the document in a browser
 #session.loop_until_closed() # run forever'''
         
